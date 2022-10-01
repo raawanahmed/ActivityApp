@@ -12,27 +12,25 @@ export default function Header() {
         onChangeText={() => {
           console.log("hi");
         }}
-      ></TextInput>
+      />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  viewStyle: {
-  },
+  viewStyle: {},
   textInputStyle: {
     borderRadius: 6,
-    borderColor: "#A08FAF",
+    borderColor: "#D58A94",
     borderWidth: 5,
     fontSize: 20,
     marginTop: 15,
     marginBottom: 5,
     width: "70%",
-    height: "60%",
+    height: "80%",
     textAlign: "center",
     placeholderTextColor: "grey",
     alignSelf: "center",
-    textAlignVertical: "top"
-        
+    textAlignVertical: "top",
   },
 });

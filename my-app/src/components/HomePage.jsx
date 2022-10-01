@@ -1,14 +1,20 @@
 import React from "react";
-import { ImageBackground } from "react-native";
+import { ImageBackground, View, StyleSheet } from "react-native";
 import Header from "./Header";
-
+import MyButton from "./MyButton";
 const HomePage = () => {
   return (
     <>
-      <ImageBackground source={require("../../assets/b.jpg")} style={{flex: 1}}  resizeMode="cover" >
-        <Header></Header>
+      <ImageBackground
+        source={require("../../assets/simple2.jpg")}
+        style={{ flex: 1 }}
+        resizeMode="cover"
+      >
+        <Header />
+        <MyButton buttonTitle="Add" />
       </ImageBackground>
     </>
   );
 };
+
 export default HomePage;
