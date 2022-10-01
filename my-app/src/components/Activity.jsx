@@ -1,8 +1,9 @@
 import React from "react";
 import { FlatList, View, Text, StyleSheet } from "react-native";
-import { activities } from "./HomePage";
+import { activitiesArr } from "./HomePage";
 import MyButton from "./MyButton";
 export default function Activity() {
+  const [activities, setActivities] = React.useState(activitiesArr);
   const renderItem = ({ item }) => {
     //  console.log(item);
     const onEditButton = () => {};
@@ -39,21 +40,24 @@ export default function Activity() {
 
 const styles = StyleSheet.create({
   activityStyle: {
-    padding: 20,
+    padding: 10,
     backgroundColor: "white",
-    marginVertical: 10,
+    marginVertical: 6,
     marginLeft: 5,
     marginRight: 5,
     borderRadius: 5,
     borderColor: "#D58A94",
     borderWidth: 5,
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
   textStyle: {
     fontWeight: "bold",
     fontSize: 18,
+    alignSelf: "center",
   },
   buttonsStyle: {
     flexDirection: "row",
-    justifyContent: "flex-end",
+    alignSelf: "center",
   },
 });
