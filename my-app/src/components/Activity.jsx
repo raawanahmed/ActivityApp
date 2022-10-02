@@ -58,6 +58,9 @@ export default function Activity() {
       setActivities(activities);
       setID(numOfID + 1);
     }
+    else{
+      alert("Please edit your activity.")
+    }
     console.log(activities);
     //setTextLabel("Enter your activity.");
   };
