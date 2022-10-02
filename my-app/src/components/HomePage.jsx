@@ -1,7 +1,5 @@
 import React from "react";
-import { ImageBackground, View, StyleSheet } from "react-native";
-import Header from "./Header";
-import MyButton from "./MyButton";
+import { ImageBackground} from "react-native";
 import Activity from "./Activity";
 
 const HomePage = () => {
@@ -12,7 +10,6 @@ const HomePage = () => {
         style={{ flex: 1 }}
         resizeMode="cover"
       >
-        <Header />
         <Activity />
       </ImageBackground>
     </>

@@ -1,17 +1,14 @@
 import React from "react";
 import { TextInput, View, StyleSheet } from "react-native";
-export default function Header() {
-  const [state, setState] = React.useState({ inputActivity: "" });
+export default function Header({ onChange, label }) {
   return (
     <View style={styles.viewStyle}>
       <TextInput
         style={styles.textInputStyle}
         multiline
         numberOfLines={3}
-        placeholder="Enter your activity"
-        onChangeText={() => {
-          console.log("hi");
-        }}
+        placeholder={label}
+        onChangeText={onChange}
       />
     </View>
   );
