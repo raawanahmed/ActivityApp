@@ -131,7 +131,7 @@ export default function Activity() {
 
 const styles = StyleSheet.create({
   activityStyle: {
-    padding: 10,
+    padding: 8,
     backgroundColor: "white",
     marginVertical: 6,
     marginLeft: 5,
@@ -144,9 +144,9 @@ const styles = StyleSheet.create({
   },
   activityContent: {
     alignSelf: "center",
-    borderWidth: 2,
-    borderColor: "red",
-    width: "35%",
+    // borderWidth: 2,
+    // borderColor: "red",
+    width: "39%",
   },
   dateStyle:{
     fontWeight: "400",
