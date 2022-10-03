@@ -2,16 +2,8 @@ import React from "react";
 import { FlatList, View, Text, StyleSheet, Alert } from "react-native";
 import MyButton from "./MyButton";
 import Header from "./Header";
-const activitiesArr = [
-  { id: 1, activity: "Go For a Walk.", date: "29/9/2022 2:50:30" },
-  { id: 2, activity: "Draw.", date: "29/9/2022 3:51:3" },
-  { id: 3, activity: "Play Free Online Games.", date: "1/10/2022 1:51:13" },
-  { id: 4, activity: "Take an Online Course.", date: "1/10/2022  2:52:3" },
-  { id: 5, activity: "Write a short story.", date: "1/10/2022 4:53:23" },
-  { id: 6, activity: "Learn a new language.", date: "1/10/2022 5:55:28" },
-  { id: 7, activity: "Go For a Run, Go For a Walk.", date: "1/10/2022 6:50:30" },
-];
-export default function Activity() {
+
+export default function Activity({ activitiesArr }) {
   const [inputActivity, setInputActivity] = React.useState("");
   const [activities, setActivities] = React.useState(activitiesArr);
   const [numOfID, setID] = React.useState(8);
@@ -39,11 +31,11 @@ export default function Activity() {
         { id: numOfID, activity: inputActivity, date: curDate },
       ];
       setID(numOfID + 1);
-      setActivities(updatedActivities);
-
       setDateTime(curDate);
+      setActivities(updatedActivities);
       console.log("Activity has been added.");
       alert("Activity has been added successfully.");
+      setInputActivity("");
     } else {
       alert("Please enter an activity.");
     }
@@ -52,14 +44,18 @@ export default function Activity() {
   const onEditButton = (id) => {
     console.log(id);
     setTextLabel("Edit your activity.");
+    const curDate = getDate();
+    const idx = activities.findIndex((item) => item.id == id);
+    setInputActivity(activities[idx].activity);
     if (inputActivity.length != 0) {
-      const idx = activities.findIndex((item) => item.id == id);
       activities[idx].activity = inputActivity;
+      activities[idx].date = curDate;
+      //setID(activities[idx].id);
+      setDateTime(curDate);
       setActivities(activities);
-      setID(numOfID + 1);
-    }
-    else{
-      alert("Please edit your activity.")
+      setInputActivity("");
+    } else {
+      alert("Please edit your activity.");
     }
     console.log(activities);
     //setTextLabel("Enter your activity.");
@@ -115,9 +111,10 @@ export default function Activity() {
       </View>
     );
   };
+
   return (
     <View>
-      <Header onChange={enteredActivity} label={textLabel} />
+      <Header onChange={enteredActivity} label={textLabel} activityValue={inputActivity} />
       <MyButton
         buttonTitle="Add"
         actionOnPress={onAddButton}
@@ -151,9 +148,9 @@ const styles = StyleSheet.create({
     // borderColor: "red",
     width: "39%",
   },
-  dateStyle:{
+  dateStyle: {
     fontWeight: "400",
-    color: "gray"
+    color: "gray",
   },
   textStyle: {
     fontWeight: "bold",

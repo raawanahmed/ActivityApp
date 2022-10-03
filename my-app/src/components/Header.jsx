@@ -1,6 +1,6 @@
 import React from "react";
 import { TextInput, View, StyleSheet } from "react-native";
-export default function Header({ onChange, label }) {
+export default function Header({ onChange, label,activityValue}) {
   return (
     <View style={styles.viewStyle}>
       <TextInput
@@ -9,6 +9,7 @@ export default function Header({ onChange, label }) {
         numberOfLines={3}
         placeholder={label}
         onChangeText={onChange}
+        value={activityValue}
       />
     </View>
   );
